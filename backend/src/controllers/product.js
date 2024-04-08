@@ -115,6 +115,7 @@ export const related = async (req, res) => {
       category: req.params.categoryId,
       _id: { $ne: req.params.productId },
     }).populate("category");
+    console.log(product);
     return res.status(StatusCodes.OK).json(product);
   } catch (error) {
     return res.status(StatusCodes.INTERNAL_SERVER_ERROR).json({ error });
